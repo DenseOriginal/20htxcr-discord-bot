@@ -7,6 +7,7 @@ RUN npm install
 
 COPY . .
 
+RUN npm install tsc -g
 RUN npm run build
 
 RUN npm run start
