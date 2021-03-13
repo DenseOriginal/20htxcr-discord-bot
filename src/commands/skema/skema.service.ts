@@ -15,7 +15,7 @@ export interface SkemaItem {
 
 @Service()
 export class SkemaService {
-    skema: SkemaItem[];
+    skema: SkemaItem[] = [];
 
     constructor() {
         this.fetch();
@@ -42,7 +42,7 @@ export class SkemaService {
             .setTitle(classToMake.title)
             .setDescription(classToMake.description)
             .setFooter(formatTimestamp(classToMake))
-            .setColor(SkemaColors[classToMake.class.toLowerCase()]);
+            .setColor((SkemaColors as any)[classToMake.class.toLowerCase()]);
 
         if(classToMake.zoomLink) embed.addField('Zoom link', classToMake.zoomLink);
         return embed;

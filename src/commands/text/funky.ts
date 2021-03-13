@@ -9,6 +9,6 @@ import { emojis } from "../../helpers/emojis";
 export class FunkyCommand implements Action {
     action({ args }: ActionContext) {
         const chars = [...args.message.join(' ').toLowerCase()];
-        return chars.map(char => (emojis[char] || [char])[0]).join(' ');
+        return chars.map(char => ((emojis as any)[char] || [char])[0]).join(' ');
     }
 }

@@ -1,4 +1,4 @@
-import { Action, Command } from "discord-framework";
+import { Action, ActionContext, Command } from "discord-framework";
 import fetch from "node-fetch";
 
 @Command({
@@ -7,7 +7,7 @@ import fetch from "node-fetch";
     description: 'Makes obama say anything'
 })
 export class TalkObamaCommand implements Action {
-    async action({ args }) {
+    async action({ args }: ActionContext) {
         const textToSay: string = args.textToSay;
         if(textToSay.length > 280) return 'Message cannot be more than 280 characters';
         const res = await fetch('http://talkobamato.me/synthesize.py', {

@@ -37,7 +37,7 @@ class MainHandler { }
 
 bootstrap(MainHandler, {
     prefix: '!',
-    token: process.env.BOT_TOKEN,
+    token: process.env.BOT_TOKEN as any,
     // listners: [ DadJokeListener ]
 })
 

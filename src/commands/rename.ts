@@ -11,7 +11,7 @@ export class RenameCommand implements Action {
     @UseClient() client!: Client;
     async action({ args, message }: ActionContext) {
         const newName: string = args.newName;
-        message.guild.me.setNickname(newName);
+        message?.guild?.me?.setNickname(newName);
         // await this.client.user.setUsername(newName);
         return `Changed my name to ${newName}`;
     }

@@ -1,4 +1,4 @@
-import { Action, Command } from "discord-framework";
+import { Action, ActionContext, Command } from "discord-framework";
 
 const responses = [
     "As I see it, yes.",
@@ -29,7 +29,7 @@ const responses = [
     description: 'Wisdom of the magic 8 Ball'
 })
 export class EightBallCommand implements Action {
-    action({ args }) {
+    action({ args }: ActionContext) {
         return Array.from({ length: args.responses ||1 }, () => responses[~~(Math.random() * responses.length)]).join('\n');
     }
 }

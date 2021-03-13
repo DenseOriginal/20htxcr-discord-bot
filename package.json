@@ -1,6 +1,5 @@
 {
   "name": "temp",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,7 +14,7 @@
   "dependencies": {
     "@types/node-fetch": "^2.5.8",
     "chrono-node": "^2.2.2",
-    "discord-framework": "^0.3.3",
+    "discord-framework": "^0.3.6",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",

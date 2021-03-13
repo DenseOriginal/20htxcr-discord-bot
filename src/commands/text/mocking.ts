@@ -1,4 +1,4 @@
-import { Action, Command } from "discord-framework";
+import { Action, ActionContext, Command } from "discord-framework";
 
 @Command({
     name: 'mock',
@@ -7,7 +7,7 @@ import { Action, Command } from "discord-framework";
     description: 'Mocks any text'
 })
 export class MockingCommand implements Action {
-    action({ args }) {
+    action({ args }: ActionContext) {
         const text: string = args.textToMock.join(' ');
         return text.split('').map(char => Math.random() < 0.5 ? char.toLowerCase() : char.toUpperCase()).join('');
     }

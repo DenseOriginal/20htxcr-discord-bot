@@ -1,4 +1,4 @@
-import { Action, Command } from "discord-framework";
+import { Action, ActionContext, Command } from "discord-framework";
 import { makeZalgo } from "../../helpers/zalgo";
 
 @Command({
@@ -7,7 +7,7 @@ import { makeZalgo } from "../../helpers/zalgo";
     description: 'Summons the devil'
 })
 export class ZalgoCommand implements Action {
-    action({ args }) {
+    action({ args }: ActionContext) {
         const textToZalgo = args.textToZalgo.join(" ");
         return makeZalgo(textToZalgo);
     }

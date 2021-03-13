@@ -11,7 +11,7 @@ export class ListEmojisCommand implements Action {
     action({ message }: ActionContext) {
         console.log('yee');
         const messageToReact = message.channel.lastMessage;
-        message.guild.emojis.cache.forEach(async (e) => {
+        message?.guild?.emojis?.cache?.forEach(async (e) => {
             try {
                 console.log(e.identifier);
             } catch (e) { }
