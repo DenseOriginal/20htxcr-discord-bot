@@ -12,7 +12,7 @@ import { SkemaUpdateCommand } from "./update";
         SkemaUpdateCommand,
         SkemaGetCommand
     ],
-    silentOnNoCommand: false,
+    silentOnUnknownCommand: false,
     description: 'En samling command der har med ITslearning at gøre'
 })
 export class SkemaHandler { }
