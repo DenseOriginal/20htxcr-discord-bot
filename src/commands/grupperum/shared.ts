@@ -1,0 +1,1 @@
+export const gruppeRumID = '785430881304838154';

@@ -13,6 +13,9 @@ import { DeveloperHandler } from "./commands/dev/handler";
 import { ExcuseCommand } from "./commands/excuse";
 import { SkemaHandler } from "./commands/skema/handler";
 import "./helpers/date";
+import { GrupperumCommands } from "./commands/grupperum";
+import { voiceStateUpdate } from "./commands/grupperum/voice-update";
+import { minecraftChannelWatch } from "./listeners/minecraft_channel";
 
 @Handler({
     name: 'main',
@@ -23,7 +26,8 @@ import "./helpers/date";
         TalkObamaCommand,
         EightBallCommand,
         FlipCommand,
-        ExcuseCommand
+        ExcuseCommand,
+        ...GrupperumCommands
     ],
     handlers: [
         TextHandler,
@@ -35,10 +39,15 @@ import "./helpers/date";
 })
 class MainHandler { }
 
-bootstrap(MainHandler, {
+const client = bootstrap(MainHandler, {
     prefix: '!',
     token: process.env.BOT_TOKEN as any,
     // listners: [ DadJokeListener ]
+});
+
+client.on('voiceStateUpdate', voiceStateUpdate);
+client.on('message', minecraftChannelWatch);
+
+client.on('ready', () => {
+    // client.channels.fetch('790888306359533619').then(chan => (chan as any).send('?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????'))
 })
-
-

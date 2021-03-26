@@ -4,7 +4,7 @@ import { Client } from "discord.js";
 @Command({
     name: 'rename',
     canRun: [isSentInGuild('This command is guild only')],
-    arguments: [{ key: 'newName', type: 'string' }],
+    arguments: [{ key: 'newName', type: 'string', joinRest: true }],
     description: 'Renames the bot'
 })
 export class RenameCommand implements Action {
